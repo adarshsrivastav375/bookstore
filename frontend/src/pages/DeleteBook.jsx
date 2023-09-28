@@ -2,7 +2,7 @@ import BackButton from "../components/BackButton"
 import { useState } from "react"
 import axios from "axios"
 import { useParams, useNavigate } from "react-router-dom"
-import Spinner from "../components/spinner"
+import Spinner from "../components/Spinner"
 import { useSnackbar } from "notistack"
 
 const DeleteBook = () => {
