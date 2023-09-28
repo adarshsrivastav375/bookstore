@@ -1,16 +1,13 @@
 import express, { request, response } from "express";
 import mongoose from "mongoose";
-//import { Book } from "./models/bookmodel.js";
 import routes from "./routes/routes.js";
 import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
 const mongoDBURL = process.env.MONGODB_URI;
-const PORT = process.env.PORT;
-
+const port = process.env.PORT || 6001;
 const app = express();
-
 //middleware for parsing request body
 app.use(express.json());
 
@@ -35,8 +32,8 @@ mongoose
   .connect(mongoDBURL)
   .then(() => {
     console.log("app connected to database");
-    app.listen(PORT, () => {
-      console.log("app is listing to port" + PORT);
+    app.listen(port, () => {
+      console.log("app is listing to port" + port);
     });
   })
   .catch((error) => {
